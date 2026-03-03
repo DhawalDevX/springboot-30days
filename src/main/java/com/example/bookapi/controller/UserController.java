@@ -34,7 +34,9 @@ public class UserController {
     @GetMapping
     public ResponseEntity<List<UserDTO>> getAllUsers() {
         List<User> users=userService.getAllUsers();
+
         List<UserDTO> response=new ArrayList<>();
+
         for(User user:users) {
             response.add(modelMapper.map(user, UserDTO.class));
         }
