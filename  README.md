@@ -59,3 +59,26 @@ src/main/java/com/example/bookapi/
 - Day 7: Pagination & Sorting
 - Day 8: User Management API
 - Day 9: OneToMany + ManyToOne RelationshipsELETE /users/{id}
+## How to Run
+
+### Prerequisites
+- Java 17+
+- MySQL
+- Maven
+
+### Setup
+1. Clone the repo
+   git clone https://github.com/DhawalDevX/springboot-30days.git
+
+2. MySQL mein database banao
+   CREATE DATABASE bookdb;
+
+3. application.properties update karo
+   spring.datasource.username=your_username
+   spring.datasource.password=your_password
+
+4. Run karo
+   mvn spring-boot:run
+
+5. Swagger UI
+   http://localhost:8080/swagger-ui/index.html
