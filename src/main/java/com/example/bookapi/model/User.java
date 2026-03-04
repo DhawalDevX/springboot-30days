@@ -1,9 +1,10 @@
 package com.example.bookapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import com.example.bookapi.model.Order;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,8 +15,18 @@ public class User {
     private String name;
     private String email;
     private String password;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
+
     public User() {
 
+    }
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 
     public Integer getId() {
