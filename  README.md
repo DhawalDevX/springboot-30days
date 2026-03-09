@@ -14,6 +14,8 @@ A REST API built with Spring Boot as part of my 30-day learning journey.
 - User Management API
 - Order Management with Relationships
 - OneToMany + ManyToOne JPA Relationships
+- Custom Queries with @Query and JPQL
+- Method Name Queries
 - Global Exception Handling
 - DTO Pattern
 - Swagger Documentation
@@ -25,12 +27,15 @@ A REST API built with Spring Boot as part of my 30-day learning journey.
 - POST /books
 - PUT /books/{id}
 - DELETE /books/{id}
+- GET /books/search?title={title}
+- GET /books/cheaper?price={price}
 
 ### Users
 - GET /users
 - POST /users
 - PUT /users/{id}
 - DELETE /users/{id}
+- GET /users/email/{email}
 
 ### Orders
 - POST /orders/user/{userId}
@@ -58,7 +63,9 @@ src/main/java/com/example/bookapi/
 - Day 6: Validation
 - Day 7: Pagination & Sorting
 - Day 8: User Management API
-- Day 9: OneToMany + ManyToOne RelationshipsELETE /users/{id}
+- Day 9: OneToMany + ManyToOne Relationships
+- Day 10: Custom Queries, @Query, JPQL
+
 ## How to Run
 
 ### Prerequisites
