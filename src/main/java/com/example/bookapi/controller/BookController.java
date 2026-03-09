@@ -13,6 +13,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/books")
 public class BookController {
@@ -94,5 +97,26 @@ public class BookController {
         bookService.deleteBook(id);
 
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/search")
+    public ResponseEntity<List<BookDTO>> searchBooks(@RequestParam String title) {
+        List<Book> books=bookService.searchByTitle(title);
+        List<BookDTO> response=new ArrayList<>();
+        for(Book book: books) {
+            response.add(modelMapper.map(book,BookDTO.class));
+        }
+        return ResponseEntity.ok(response);
+
+
+    }
+    @GetMapping("/cheaper")
+    public ResponseEntity<List<BookDTO>> getCheaperBooks(
+            @RequestParam Double price) {
+        List<Book> books = bookService.findBooksCheaperThan(price);
+        List<BookDTO> response = new ArrayList<>();
+        for (Book book : books) {
+            response.add(modelMapper.map(book, BookDTO.class));
+        }
+        return ResponseEntity.ok(response);
     }
 }

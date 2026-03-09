@@ -11,13 +11,12 @@ import java.util.List;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
-    public UserService(UserRepository userRepository,ModelMapper modelMapper) {
+    public UserService(UserRepository userRepository) {
         this.userRepository=userRepository;
-        this.modelMapper=modelMapper;
+
 
     }
-    //Create user..
+    //Create user....
     public User addUser(User user) {
         return userRepository.save(user);
     }
@@ -49,5 +48,9 @@ public class UserService {
             throw  new UserNotFoundException("User not found with id "+id);
         }
         userRepository.deleteById(id);
+    }
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+
     }
 }

@@ -66,7 +66,12 @@ public class UserController {
         return ResponseEntity.noContent().build();
 
     }
-
-
+    @GetMapping("/email/{email}")
+    public ResponseEntity<UserDTO> getUserByEmail(
+            @PathVariable String email) {
+        User user = userService.getUserByEmail(email);
+        return ResponseEntity.ok(
+                modelMapper.map(user, UserDTO.class));
+    }
 
 }

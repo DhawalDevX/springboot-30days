@@ -3,10 +3,14 @@ package com.example.bookapi.service;
 import com.example.bookapi.exception.BookNotFoundException;
 import com.example.bookapi.model.Book;
 import com.example.bookapi.repository.BookRepository;
+import org.apache.catalina.LifecycleState;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -50,5 +54,13 @@ public class BookService {
             throw new BookNotFoundException("Book not found with id " + id);
         }
         bookRepository.deleteById(id);
+    }
+    public List<Book> searchByTitle(String title) {
+        return bookRepository.findByTitleContaining(title);
+
+
+    }
+    public List<Book> findBooksCheaperThan(Double price) {
+        return bookRepository.findBooksCheaperThan(price);
     }
 }
