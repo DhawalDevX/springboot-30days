@@ -24,37 +24,37 @@ A REST API built with Spring Boot as part of my 30-day learning journey.
 ## API Endpoints
 
 ### Books
-- GET /books
-- POST /books
-- PUT /books/{id}
-- DELETE /books/{id}
-- GET /books/search?title={title}
-- GET /books/cheaper?price={price}
+- GET /books — Get all books (paginated)
+- POST /books — Add new book
+- PUT /books/{id} — Update book
+- DELETE /books/{id} — Delete book
+- GET /books/search?title={title} — Search by title
+- GET /books/cheaper?price={price} — Filter by price
 
 ### Users
-- GET /users
-- POST /users
-- PUT /users/{id}
-- DELETE /users/{id}
-- GET /users/email/{email}
-- GET /users/name/{name}
-- GET /users/age/{age}
+- GET /users — Get all users
+- POST /users — Add new user
+- PUT /users/{id} — Update user
+- DELETE /users/{id} — Delete user
+- GET /users/email/{email} — Find by email
+- GET /users/name/{name} — Find by name
+- GET /users/age/{age} — Find users older than age
 
 ### Orders
-- POST /orders/user/{userId}
-- GET /orders/user/{userId}
-- DELETE /orders/{orderId}
+- POST /orders/user/{userId} — Add order for user
+- GET /orders/user/{userId} — Get all orders of user
+- DELETE /orders/{orderId} — Delete order
 
 ## Project Structure
 ```
 src/main/java/com/example/bookapi/
-├── controller/
-├── service/
-├── repository/
-├── model/
-├── dto/
-├── exception/
-└── config/
+├── controller/    — REST endpoints
+├── service/       — Business logic
+├── repository/    — DB queries
+├── model/         — JPA entities
+├── dto/           — Data Transfer Objects
+├── exception/     — Custom exceptions
+└── config/        — App configuration
 ```
 
 ## What I Learned
@@ -69,6 +69,28 @@ src/main/java/com/example/bookapi/
 - Day 9: OneToMany + ManyToOne Relationships
 - Day 10: Custom Queries, @Query, JPQL
 - Day 11: Search APIs, Method Name Queries
+
+## Sample Request & Response
+
+### Add a Book
+```json
+POST /books
+{
+  "title": "Spring Boot in Action",
+  "author": "Craig Walls",
+  "price": 599.99
+}
+```
+
+### Response
+```json
+{
+  "id": 1,
+  "title": "Spring Boot in Action",
+  "author": "Craig Walls",
+  "price": 599.99
+}
+```
 
 ## How to Run
 
@@ -91,5 +113,10 @@ src/main/java/com/example/bookapi/
 4. Run karo
    mvn spring-boot:run
 
-5. Swagger UI
+5. Swagger UI open karo
    http://localhost:8080/swagger-ui/index.html
+
+## Author
+- Dhawal Sharma
+- MCA Graduate
+- GitHub: github.com/DhawalDevX
