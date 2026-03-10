@@ -11,6 +11,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Integer age;
 
     private String name;
     private String email;
@@ -59,5 +60,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

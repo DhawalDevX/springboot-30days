@@ -53,4 +53,10 @@ public class UserService {
         return userRepository.findByEmail(email);
 
     }
+    public User getUserByName(String name) {
+        return userRepository.findByName(name);
+    }
+    public List<User> getUsersOlderThan(Integer age) {
+        return userRepository.findByAgeGreaterThan(age);
+    }
 }
