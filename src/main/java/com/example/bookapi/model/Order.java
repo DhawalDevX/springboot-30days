@@ -8,10 +8,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String item;
+
     private Double price;
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;
+    
     public Order (){}
 
     public Integer getId() {

@@ -76,7 +76,7 @@ public class UserController {
     @GetMapping("/name{name}")
     public ResponseEntity<UserDTO> getUserByName(@PathVariable String name) {
         User user=userService.getUserByName(name);
-        return ResponseEntity.ok(modelMapper.map(user, UserDTO.class);
+        return ResponseEntity.ok(modelMapper.map(user, UserDTO.class));
 
     }
     @GetMapping("/age{age}")

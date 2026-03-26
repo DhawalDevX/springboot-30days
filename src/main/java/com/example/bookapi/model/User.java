@@ -17,6 +17,7 @@ public class User {
     private String email;
     private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
     public User() {
